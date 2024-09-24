@@ -9,9 +9,19 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wisata Bandung'),
+        title: Text('Wisata Bandung. Size: ${MediaQuery.of(context).size.width}'),
       ),
-      body: ListView.builder(
+      body: const TourismPlaceList(),
+    );
+  }
+}
+
+class TourismPlaceList extends StatelessWidget {
+  const TourismPlaceList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
         itemBuilder: (context, index) {
           final TourismPlace place = tourismPlaceList[index];
           return InkWell(
@@ -53,7 +63,6 @@ class MainScreen extends StatelessWidget {
           );
         },
         itemCount: tourismPlaceList.length,
-      ),
-    );
+      );
   }
 }
